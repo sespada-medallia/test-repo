@@ -1,0 +1,25 @@
+{
+  "name": "test-repo",
+  "version": "1.0.0",
+  "description": "this is a description",
+  "main": "server.js",
+  "scripts": {
+    "test": "yarn test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sespada-medallia/test-repo.git"
+  },
+  "author": "sofi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sespada-medallia/test-repo/issues"
+  },
+  "homepage": "https://github.com/sespada-medallia/test-repo#readme",
+  "dependencies": {
+    "@octokit/webhooks": "^9.17.0",
+    "eventsource": "^1.1.0",
+    "github-webhook-handler": "^1.0.0"
+  }
+}
