@@ -10,7 +10,6 @@ const EventSource = require('eventsource')
 const webhookProxyUrl = "https://smee.io/Vm8Pj1L3eTLpGKi5"; // replace with your own Webhook Proxy URL
 const source = new EventSource(webhookProxyUrl);
 source.onmessage = (event) => {
-    console.log(event);
   const webhookEvent = JSON.parse(event.data);
   webhooks
     .verifyAndReceive({
@@ -25,9 +24,13 @@ source.onmessage = (event) => {
 webhooks.onAny(({ id, name, payload }) => {
     console.log(name, "event received");
   });
+
+webhooks.on('pull_request.opened', ({id,payload}) => {
+    console.log('opened a pull request, id: ', id, 'payload: ', payload);
+})
+
   
   require("http").createServer(createNodeMiddleware(webhooks)).listen(3000);
 
 
 
-  
